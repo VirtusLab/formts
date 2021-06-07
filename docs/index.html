@@ -1,0 +1,359 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@virtuslab/formts</title>
+	<meta name="description" content="Documentation for @virtuslab/formts">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@virtuslab/formts</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>@virtuslab/formts</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><a href="https://app.circleci.com/pipelines/github/VirtusLab/formts"><img src="https://circleci.com/gh/VirtusLab/formts.svg?style=shield" alt="build status"></a>
+					<a href="https://github.com/VirtusLab/formts/blob/master/LICENSE"><img src="https://img.shields.io/github/license/VirtusLab/formts" alt="GitHub license"></a>
+					<a href="https://www.npmjs.com/package/@virtuslab/formts"><img src="https://img.shields.io/npm/v/@virtuslab/formts" alt="npm"></a>
+					<a href="https://bundlephobia.com/result?p=@virtuslab/formts"><img src="https://img.shields.io/bundlephobia/minzip/@virtuslab/formts" alt="npm bundle size"></a>
+				<a href="https://github.com/VirtusLab/formts#examples"><img src="https://img.shields.io/badge/examples-codesandbox-blue" alt="examples"></a></p>
+				<a href="#formts" id="formts" style="color: inherit; text-decoration: none;">
+					<h1>Formts</h1>
+				</a>
+				<p><strong>Type-safe, declarative and performant React form &amp; validation library</strong></p>
+				<a href="#status" id="status" style="color: inherit; text-decoration: none;">
+					<h3>Status</h3>
+				</a>
+				<p>Active development. Expect frequent breaking changes until <code>1.0.0</code> is reached ⚠️</p>
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h3>Features</h3>
+				</a>
+				<ul>
+					<li>Fully type-safe API, purpose built to get the most out of Typescript
+					type-inference</li>
+					<li>Declarative definition of form shape and validation rules</li>
+					<li>Runtime type-checking of form values against the schema</li>
+					<li>Convenient hooks &amp; context based API allowing for isolated re-renders</li>
+					<li>Plain react-typescript, 0 dependencies</li>
+					<li>View layer agnostic - no components are provided, works with any 3rd-party
+					components</li>
+					<li><code>handleChange</code> function for dealing with change events automatically</li>
+					<li>Advanced validation API which enables:<ul>
+							<li>specifying dependencies on other fields</li>
+							<li>specifying validation triggers for individual rules</li>
+							<li>selective validation of just the affected fields on value changes</li>
+							<li>separation of error messages from error codes (optional)</li>
+							<li>async validation rules with debounce option</li>
+							<li>easy mixing of built-in rules with custom functions</li>
+							<li>combining multiple validation rules into composite validators</li>
+						</ul>
+					</li>
+					<li><strong>[TODO]</strong> Transformation API for declarative mapping and filtering of field
+					values</li>
+					<li>Good scalability for very large and complex forms</li>
+				</ul>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h3>Getting Started</h3>
+				</a>
+				<a href="#1-install" id="1-install" style="color: inherit; text-decoration: none;">
+					<h4>1) Install</h4>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">npm install @virtuslab/formts</span>
+</code></pre>
+				<a href="#2-define-shape-of-the-form" id="2-define-shape-of-the-form" style="color: inherit; text-decoration: none;">
+					<h4>2) Define shape of the form</h4>
+				</a>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createFormSchema</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@virtuslab/formts&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">Schema</span><span style="color: #000000"> = </span><span style="color: #795E26">createFormSchema</span><span style="color: #000000">(</span>
+<span style="color: #000000">  </span><span style="color: #001080">fields</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({ </span><span style="color: #001080">answer:</span><span style="color: #000000"> </span><span style="color: #001080">fields</span><span style="color: #000000">.</span><span style="color: #795E26">string</span><span style="color: #000000">() }),</span>
+<span style="color: #000000">  </span><span style="color: #001080">errors</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #795E26">errors</span><span style="color: #000000">&lt;</span><span style="color: #267F99">string</span><span style="color: #000000">&gt;()</span>
+<span style="color: #000000">);</span>
+</code></pre>
+				<a href="#3-define-validation-rules-optional" id="3-define-validation-rules-optional" style="color: inherit; text-decoration: none;">
+					<h4>3) Define validation rules (optional)</h4>
+				</a>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createFormValidator</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@virtuslab/formts&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">validator</span><span style="color: #000000"> = </span><span style="color: #795E26">createFormValidator</span><span style="color: #000000">(</span><span style="color: #001080">Schema</span><span style="color: #000000">, </span><span style="color: #001080">validate</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> [</span>
+<span style="color: #000000">  </span><span style="color: #795E26">validate</span><span style="color: #000000">(</span>
+<span style="color: #000000">    </span><span style="color: #001080">Schema</span><span style="color: #000000">.</span><span style="color: #001080">answer</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">val</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> (</span><span style="color: #001080">val</span><span style="color: #000000"> === </span><span style="color: #A31515">&quot;&quot;</span><span style="color: #000000"> ? </span><span style="color: #A31515">&quot;Required!&quot;</span><span style="color: #000000"> : </span><span style="color: #0000FF">null</span><span style="color: #000000">),</span>
+<span style="color: #000000">    </span><span style="color: #001080">val</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> (</span><span style="color: #001080">val</span><span style="color: #000000"> !== </span><span style="color: #A31515">&quot;42&quot;</span><span style="color: #000000"> ? </span><span style="color: #A31515">&quot;Wrong answer!&quot;</span><span style="color: #000000"> : </span><span style="color: #0000FF">null</span><span style="color: #000000">)</span>
+<span style="color: #000000">  ),</span>
+<span style="color: #000000">]);</span>
+</code></pre>
+				<a href="#3-create-controller-holding-form-state" id="3-create-controller-holding-form-state" style="color: inherit; text-decoration: none;">
+					<h4>3) Create controller holding form state</h4>
+				</a>
+				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">useFormController</span><span style="color: #000000">, </span><span style="color: #001080">FormProvider</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@virtuslab/formts&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">MyForm</span><span style="color: #000000">: </span><span style="color: #267F99">React</span><span style="color: #000000">.</span><span style="color: #267F99">FC</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">controller</span><span style="color: #000000"> = </span><span style="color: #795E26">useFormController</span><span style="color: #000000">({ </span><span style="color: #001080">Schema</span><span style="color: #000000">, </span><span style="color: #001080">validator</span><span style="color: #000000"> });</span>
+
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> (</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;</span><span style="color: #267F99">FormProvider</span><span style="color: #000000"> </span><span style="color: #FF0000">controller</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">controller</span><span style="color: #0000FF">}</span><span style="color: #800000">&gt;</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;</span><span style="color: #267F99">AnswerField</span><span style="color: #000000"> </span><span style="color: #800000">/&gt;</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;</span><span style="color: #267F99">FormActions</span><span style="color: #000000"> </span><span style="color: #800000">/&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/</span><span style="color: #267F99">FormProvider</span><span style="color: #800000">&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<a href="#4-connect-inputs-to-form" id="4-connect-inputs-to-form" style="color: inherit; text-decoration: none;">
+					<h4>4) Connect inputs to form</h4>
+				</a>
+				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">useField</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@virtuslab/formts&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">AnswerField</span><span style="color: #000000">: </span><span style="color: #267F99">React</span><span style="color: #000000">.</span><span style="color: #267F99">FC</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">field</span><span style="color: #000000"> = </span><span style="color: #795E26">useField</span><span style="color: #000000">(</span><span style="color: #001080">Schema</span><span style="color: #000000">.</span><span style="color: #001080">answer</span><span style="color: #000000">);</span>
+
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> (</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;section&gt;</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;label</span><span style="color: #000000"> </span><span style="color: #FF0000">htmlFor</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">field</span><span style="color: #000000FF">.</span><span style="color: #001080">id</span><span style="color: #0000FF">}</span><span style="color: #800000">&gt;</span>
+<span style="color: #000000">        What is the answer to the meaning of life, the universe, and everything?</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;/label&gt;</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;input</span>
+<span style="color: #000000">        </span><span style="color: #FF0000">id</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">field</span><span style="color: #000000FF">.</span><span style="color: #001080">id</span><span style="color: #0000FF">}</span>
+<span style="color: #000000">        </span><span style="color: #FF0000">value</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">field</span><span style="color: #000000FF">.</span><span style="color: #001080">value</span><span style="color: #0000FF">}</span>
+<span style="color: #000000">        </span><span style="color: #FF0000">onChange</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">field</span><span style="color: #000000FF">.</span><span style="color: #001080">handleChange</span><span style="color: #0000FF">}</span>
+<span style="color: #000000">        </span><span style="color: #FF0000">onBlur</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">field</span><span style="color: #000000FF">.</span><span style="color: #001080">handleBlur</span><span style="color: #0000FF">}</span>
+<span style="color: #000000">      </span><span style="color: #800000">/&gt;</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;div</span><span style="color: #000000"> </span><span style="color: #FF0000">className</span><span style="color: #000000">=</span><span style="color: #A31515">&quot;error&quot;</span><span style="color: #800000">&gt;</span><span style="color: #0000FF">{</span><span style="color: #001080">field</span><span style="color: #000000FF">.</span><span style="color: #001080">error</span><span style="color: #0000FF">}</span><span style="color: #800000">&lt;/div&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/section&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<a href="#5-connect-actions-to-form" id="5-connect-actions-to-form" style="color: inherit; text-decoration: none;">
+					<h4>5) Connect actions to form</h4>
+				</a>
+				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">useFormHandle</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@virtuslab/formts&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">FormActions</span><span style="color: #000000">: </span><span style="color: #267F99">React</span><span style="color: #000000">.</span><span style="color: #267F99">FC</span><span style="color: #000000"> = () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">form</span><span style="color: #000000"> = </span><span style="color: #795E26">useFormHandle</span><span style="color: #000000">(</span><span style="color: #001080">Schema</span><span style="color: #000000">);</span>
+
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> (</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;section&gt;</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;button</span>
+<span style="color: #000000">        </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #A31515">&quot;submit&quot;</span>
+<span style="color: #000000">        </span><span style="color: #FF0000">disabled</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">form</span><span style="color: #000000FF">.</span><span style="color: #001080">isValid</span><span style="color: #000000FF"> </span><span style="color: #000000">===</span><span style="color: #000000FF"> </span><span style="color: #0000FF">false}</span>
+<span style="color: #000000">        </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #000000FF">() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000FF"> </span><span style="color: #001080">form</span><span style="color: #000000FF">.</span><span style="color: #795E26">submit</span><span style="color: #000000FF">(</span><span style="color: #001080">console</span><span style="color: #000000FF">.</span><span style="color: #001080">log</span><span style="color: #000000FF">)</span><span style="color: #0000FF">}</span>
+<span style="color: #000000">      </span><span style="color: #800000">&gt;</span>
+<span style="color: #000000">        Submit!</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;/button&gt;</span>
+
+<span style="color: #000000">      </span><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #A31515">&quot;reset&quot;</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #001080">form</span><span style="color: #000000FF">.</span><span style="color: #001080">reset</span><span style="color: #0000FF">}</span><span style="color: #800000">&gt;</span>
+<span style="color: #000000">        Reset</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;/button&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/section&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h3>Documentation</h3>
+				</a>
+				<p>Currently API documentation is available in form of exhaustive JSDocs and
+				examples</p>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h3>Examples</h3>
+				</a>
+				<p>Play around with the code on <em>CodeSandbox</em> to learn <em>Formts</em> API and features:</p>
+				<p>a) Step-by-step introduction:</p>
+				<ol>
+					<li><a href="https://codesandbox.io/s/intro-01-basic-form-naive-vplnc?file=/src/example.tsx">basic form (naive)</a></li>
+					<li><a href="https://codesandbox.io/s/intro-02-basic-form-optimised-re-renders-r6mrc?file=/src/example.tsx">basic form + optimized re-renders</a></li>
+					<li><a href="https://codesandbox.io/s/intro-03-basic-form-validation-nhsg7?file=/src/example.tsx:770-795">basic form + validation</a></li>
+					<li><a href="https://codesandbox.io/s/intro-04-basic-form-material-ui-e0kkl?file=/src/example.tsx">basic form + Material-UI</a></li>
+				</ol>
+				<p>b) HTML input bindings:</p>
+				<ol>
+					<li><a href="https://codesandbox.io/s/inputs-radio-group-4l1pu?file=/src/example.tsx">radio group input</a></li>
+					<li><a href="https://codesandbox.io/s/inputs-checkbox-group-t0mqb?file=/src/example.tsx">checkbox group input</a></li>
+					<li><a href="https://codesandbox.io/s/inputs-select-1twl4?file=/src/example.tsx">select input</a></li>
+					<li><a href="https://codesandbox.io/s/inputs-field-arrays-005tl?file=/src/example.tsx">input array</a></li>
+					<li><a href="https://codesandbox.io/s/inputs-mui-multi-select-lczxy?file=/src/example.tsx">mui multi-select input</a></li>
+					<li><a href="https://codesandbox.io/s/inputs-mui-date-picker-x21vz?file=/src/example.tsx">mui date-picker input</a></li>
+				</ol>
+				<p>c) Advanced examples:</p>
+				<ol>
+					<li><a href="https://codesandbox.io/s/change-password-form-yn1yz?file=/src/example.tsx">change password form</a></li>
+					<li><a href="https://codesandbox.io/s/order-pizza-form-bsrv5?file=/src/example.tsx">order pizza form</a></li>
+				</ol>
+				<a href="#why-another-form-lib" id="why-another-form-lib" style="color: inherit; text-decoration: none;">
+					<h3>Why another form lib?</h3>
+				</a>
+				<a href="#a-type-safety" id="a-type-safety" style="color: inherit; text-decoration: none;">
+					<h4>a) Type-safety</h4>
+				</a>
+				<p>Most popular form libraries like <code>Formik</code> and <code>react-hook-form</code> are written in
+				Typescript but are not <em>designed</em> with type-safe API as a primary concern.</p>
+				<p>There is some evidence that this is important for some people:</p>
+				<ul>
+					<li><a href="https://www.reddit.com/r/typescript/comments/co03ud/fully_typesafe_form_libraries/ewg09p0/">Reddit: Fully type-safe form libraries?</a></li>
+					<li><a href="https://github.com/formium/formik/issues/1334">Formik issue: Strongly Typed Fields</a></li>
+					<li><a href="https://github.com/react-hook-form/strictly-typed">react-hook-form extension: strictly-typed</a></li>
+				</ul>
+				<p>There are some existing truly type-safe react form solutions, but each has a
+				costly dependency associated with it:</p>
+				<ul>
+					<li><a href="https://github.com/formstate/formstate">formstate</a> --&gt; <code>MobX</code></li>
+					<li><a href="https://dev.to/steida/how-to-forms-with-react-and-typescript-4icb">Typescript.fun</a>
+					--&gt; <code>fp-ts</code></li>
+					<li><a href="https://github.com/Astrocoders/reform">ReForm</a> --&gt; <code>ReasonML</code></li>
+				</ul>
+				<a href="#b-performance" id="b-performance" style="color: inherit; text-decoration: none;">
+					<h4>b) Performance</h4>
+				</a>
+				<p>There are SOME form libraries with really good performance (react-hook-form).
+					However combining convenient Context based hook API with React performance
+					optimizations is still problematic. See
+				<a href="https://react-hook-form.com/advanced-usage#FormProviderPerformance">https://react-hook-form.com/advanced-usage#FormProviderPerformance</a> for example.</p>
+				<a href="#c-declarative-validation-api" id="c-declarative-validation-api" style="color: inherit; text-decoration: none;">
+					<h4>c) Declarative validation API</h4>
+				</a>
+				<p>Usually form libs &quot;outsource&quot; advanced validation to schema-based libraries such
+				as <code>Yup</code>. This seems like a great idea but has some limitations:</p>
+				<ul>
+					<li><code>yup</code> and similar packages are not designed with type-safety in mind</li>
+					<li>Advanced optimizations (such as validating only the affected fields rather
+					than the entire form) are not available.</li>
+				</ul>
+				<a href="#current-limitations" id="current-limitations" style="color: inherit; text-decoration: none;">
+					<h3>Current limitations</h3>
+				</a>
+				<ul>
+					<li>Form values type is limited by schema definition API and can&#39;t represent more
+					advanced TS types</li>
+					<li>Adding <code>required</code> validator does not impact type of values on Submit</li>
+					<li>Definition of form shape and validation split into 2 separate steps</li>
+					<li>Binding to input components is more verbose than with other form libraries
+					(this is intentional to keep API type-safe and view-layer agnostic)</li>
+					<li>Transformation API is limited to mapping inside the same type, i.e. <code>T =&gt; T</code></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/validator.html">Validator</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/fielddecoder.html" class="tsd-kind-icon">Field<wbr>Decoder</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/fielddescriptor.html" class="tsd-kind-icon">Field<wbr>Descriptor</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/formcontroller.html" class="tsd-kind-icon">Form<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/formvalidator.html" class="tsd-kind-icon">Form<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#extractformvalues" class="tsd-kind-icon">Extract<wbr>Form<wbr>Values</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#fieldhandle" class="tsd-kind-icon">Field<wbr>Handle</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#formschema" class="tsd-kind-icon">Form<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#formtsoptions" class="tsd-kind-icon">Formts<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#validator" class="tsd-kind-icon">Validator</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#formprovider" class="tsd-kind-icon">Form<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#createformschema" class="tsd-kind-icon">create<wbr>Form<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#createformvalidator" class="tsd-kind-icon">create<wbr>Form<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#usefield" class="tsd-kind-icon">use<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#useformcontroller" class="tsd-kind-icon">use<wbr>Form<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#useformhandle" class="tsd-kind-icon">use<wbr>Form<wbr>Handle</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#useformvalues" class="tsd-kind-icon">use<wbr>Form<wbr>Values</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
